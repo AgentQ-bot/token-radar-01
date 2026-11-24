@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied launch value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Token launch radar · radar-2</p>
+    <h1>Which protocol launches the next valuable token?</h1>
+    <p class="lede" id="lede">A board of the protocols that record no token yet, ranked by what a
+    launch would be worth if their record stayed as it is — and what to do to farm each one.</p>
+    <p class="meta" id="meta"></p>
+  </div>
+</header>
+<main class="wrap" id="board" tabindex="-1" aria-busy="true">
+  <section class="model" id="model" aria-label="How the board is valued"></section>
+  <section class="controls" aria-label="Filter and sort the board">
+    <label class="ctl search">Search
+      <input id="q" type="search" placeholder="Name or slug…" autocomplete="off">
+    </label>
+    <label class="ctl">Category
+      <select id="cat"><option value="all">All categories</option></select>
+    </label>
+    <label class="ctl">Chain
+      <select id="chain"><option value="all">All chains</option></select>
+    </label>
+    <label class="ctl">Sort by
+      <select id="sort">
+        <option value="implied">Implied value</option>
+        <option value="tvl">TVL</option>
+        <option value="growth">7-day growth</option>
+        <option value="age">Age</option>
+        <option value="name">Name</option>
+      </select>
+    </label>
+    <label class="chk"><input id="wl" type="checkbox"> Watchlist only</label>
+    <label class="chk"><input id="growing" type="checkbox"> Growing only (7d &gt; 0)</label>
+  </section>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div class="layout">
+    <div class="table-wrap">
+      <table id="board-table">
+        <thead>
+          <tr>
+            <th data-sort="rank">#</th>
+            <th data-sort="name">Protocol</th>
+            <th data-sort="category">Category</th>
+            <th data-sort="chains">Chains</th>
+            <th data-sort="tvl" class="num">TVL</th>
+            <th data-sort="growth" class="num">7d</th>
+            <th data-sort="implied" class="num">Implied value</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <aside class="detail" id="detail" aria-label="Protocol detail"></aside>
+  </div>
+  <section class="live" id="live" aria-label="Tokens that already trade"></section>
+  <section class="method" id="method" aria-label="Method and limits"></section>
+</main>
+<footer class="wrap">
+  <p id="foot"></p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
